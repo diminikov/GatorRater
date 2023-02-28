@@ -19,13 +19,13 @@ describe('AppComponent', () => {
   it(`should have as title 'GatorRater'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('GatorRater');
+    expect(app.title).equal('GatorRater');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('GatorRater app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).contain('GatorRater app is running!');
   });
 });

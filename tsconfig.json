@@ -28,6 +28,10 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
+    "exclude": [
+      "**/*.spec.ts"
+    ],
     "strictTemplates": true
   }
+  
 }
