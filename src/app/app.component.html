@@ -1,13 +1,13 @@
 
-<app-header></app-header>
-<div class="row">
-    <div class="col-xs-12">
-        <h1>Welcome to Gator Rater!</h1>
-        <hr>
-       
-    </div>
-</div>
+<app-header (featureSelected)="onNavigate($event)"></app-header>
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <app-courses *ngIf="loadedFeature === 'course'"></app-courses>
+          <app-about-us *ngIf="loadedFeature ==='AboutUs'"></app-about-us>
+          <app-login *ngIf="loadedFeature ==='login'"></app-login>
 
-<div class="row">
-
+          
+      </div>
+  </div>
 </div>
