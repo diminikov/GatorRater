@@ -1,0 +1,21 @@
+
+<div class="container-fluid">
+    <div class="col-xs-12">
+        <hr>
+    </div>
+    <div class="col-xs-12">
+        <div class = "container">
+            <a  href="#" 
+            class="btn btn-primary dropdown-toggle" 
+            *ngFor="let Course of courses; let i = index">
+            <div class="container">
+                <h4 class="list-group-item-heading" (click)="onSelected(i)">{{Course.ID}}:  {{Course.name}}</h4>
+
+            </div>
+            <span class="pull-left">
+            </span>
+        </a>
+        </div>
+        
+    </div>
+</div>
