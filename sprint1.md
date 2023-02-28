@@ -18,7 +18,8 @@ Front End Issues:
 Added Bootstrap and Angular Material to project
 Created a couple components and displayed them on page
 used local host to view changes to site
-Unable to create searchbar -will be more plausible to implement once we have the back-end working with the front
+created search bar but lacks functionality because we need to connect to back end
+created login and also need to connect to back end
 
 
 Back End Issues:
@@ -39,6 +40,7 @@ ability to post a comment under a course
 ability to rate a course
 using data base to store and update ratings/comments on site.
 ability to log out of site and log back in
+need to use on event to make components hide and appear as needed on the site
 
 
 Why did we not complete all issues?
