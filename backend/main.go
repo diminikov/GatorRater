@@ -1,52 +1,53 @@
 package main
 
 import (
-	"database/sql"
-	"fmt"
-	"log"
-	"os"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
-var db *sql.DB
+// user represents data about website users.
+type user struct {
+	ID       string `json:"id"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+// users slice to seed record user data.
+var users = []user{
+	{ID: "1", Username: "Michael", Password: "password"},
+	{ID: "2", Username: "Dimitri", Password: "password"},
+	{ID: "3", Username: "Nishant", Password: "password"},
+}
 
 func main() {
+	router := gin.Default()
+	router.GET("/users", getusers)
+	router.GET("/login/:username/:password", getLogin)
 
-	db, connectErr := connect("root", "password", "gatorrater")
-	if connectErr != nil {
-		log.Fatal(connectErr)
-	}
-	fmt.Printf("Connection Success!\n")
+	router.Run("localhost:8080")
+}
 
-	var option = os.Args[1]
+// getusers responds with the list of all users as JSON.
+func getusers(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, users)
+}
 
-	var user = os.Args[2]
-	var pass = os.Args[3]
+// getLogin responds with the data for that specifc user login details
+func getLogin(c *gin.Context) {
+	username := c.Param("username")
+	//println(username)
+	password := c.Param("password")
+	//println(password)
 
-	acc := Account{
-		username: user,
-		password: pass,
-	}
-
-	if option == "LOGIN" {
-		fmt.Printf("Attempting login with user %v\n", acc.username)
-		loginErr := login(db, acc)
-		if loginErr != nil {
-			log.Fatal(loginErr)
+	// Loop over the list of users, looking for
+	// an user whose ID value matches the parameter.
+	for _, a := range users {
+		if a.Username == username && a.Password == password {
+			c.IndentedJSON(http.StatusOK, a)
+			return
 		}
-		fmt.Printf("Succesfully logged in with user %v\n", acc.username)
-	} else if option == "SIGNUP" {
-		fmt.Printf("Attempting to create user %v\n", acc.username)
-		signupErr := signup(db, acc)
-		if signupErr != nil {
-			log.Fatal(signupErr)
-		}
-		fmt.Printf("Succesfully created user %v\n", acc.username)
-	} else if option == "DELETE" {
-		fmt.Printf("Attempting to delete user %v\n", acc.username)
-		deleteErr := delete(db, acc)
-		if deleteErr != nil {
-			log.Fatal(deleteErr)
-		}
-		fmt.Printf("Succesfully deleted user %v\n", acc.username)
+
 	}
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "user not found"})
 }
