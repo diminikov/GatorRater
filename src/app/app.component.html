@@ -8,6 +8,35 @@
     </div>
 </div>
 
-<div class="row">
+    <form class = "wrap">
+        <div class = "search">
+            <h3>Searching for a Class : </h3>
+            <input
+            class = "searchTerm"
+            type = "text"
+            name = "searchTerm"
+            placeholder ="What class are you looking for?"
+            [(ngModel)]="searchTerm" (input)="search(searchTerm)"
+            />
+        </div>
 
-</div>
+        <table class=" "table table-striped:>
+            <thead>
+                <tr>
+                    <th scope ="col">#</th>
+                    <th scope ="col">Class</th>
+                    <th scope ="col">Professor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor =" let class of classes | searchFilter: searchTerm; index as i">
+                    <td scope="row">{{ i + 1}}</td>
+                    <td>{{ class.name }}</td>
+                    <td>{{ class.professor }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    
+
+

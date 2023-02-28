@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Cen3031",
+        "professor": "Alin Dobra"
+    },
+    {
+        "name": "Cop3530",
+        "professor": "Amanpreet Kapoor"
+
+    },
+    {
+        "name": "Cop3502",
+        "professor": "Lisa Zhou"
+
+    },
+    {
+        "name": "Cop3503",
+        "professor": "Joshua Fox"
+
+    },
+    {
+        "name": "Cda3101",
+        "professor": "Cheryl Resch"
+
+    },
+    {
+        "name": "Mac2311",
+        "professor": "Stephen Adams"
+
+    },
+    {
+        "name": "Mac2313",
+        "professor": "Stephen Adams"
+
+    }
+]
