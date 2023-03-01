@@ -12,6 +12,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { LoginComponent } from './login/login.component';
 import{HttpClientModule} from '@angular/common/http'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 
 
@@ -23,6 +24,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     CoursesComponent,
     AboutUsComponent,
     LoginComponent,
+    SearchFilterPipe,
   ],
   imports: [
     FormsModule,

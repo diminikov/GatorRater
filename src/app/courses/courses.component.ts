@@ -28,6 +28,7 @@ export class CoursesComponent {
 
 
 
+
   courseClicked(course: Course){
     console.log(Course.name);
 
