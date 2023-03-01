@@ -1,3 +1,18 @@
+<div class = "m-3">
+    <div class = "wrap">
+      <div class = "search">
+        <h3>Search For Course</h3>
+        <input
+        class = "searchTerm"
+        type = "text"
+        name = "searchTerm"
+        placeholder= "What course are you looking for?"
+        [(ngModel)] = "searchTerm" (input) = "search(searchTerm)"
+        />
+      </div>
+    </div>
+  </div>
+
 
 <div class="container-fluid">
     <div class="col-xs-12">
@@ -19,3 +34,6 @@
         
     </div>
 </div>
+
+
+

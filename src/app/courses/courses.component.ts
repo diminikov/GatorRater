@@ -1,4 +1,5 @@
-import { Component,Output, EventEmitter } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component,Output, EventEmitter, OnInit } from '@angular/core';
 import { Course } from './course.model';
 
 @Component({
@@ -36,6 +37,27 @@ export class CoursesComponent {
     //this.courseSelected.emit();
     //console.log
     return index;
+  }
+
+  searchTerm = '';
+  classes: Course[] = [];
+  term = '';
+  allClasses: Course[] = [];
+
+  constructor(private http: HttpClient) { }
+  
+  ngOnInit(): void {
+    this.http.get<Course[]>('').subscribe((data: Course[]) => {
+      this.classes = data;
+      this.allClasses = this.classes;
+    });
+
+  }
+
+  search(value:string): void{
+    this.classes = this.allClasses.filter((val)=>
+    val.name.toLowerCase().includes(value)
+    );
   }
 
 }

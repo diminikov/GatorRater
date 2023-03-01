@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { LoginComponent } from './login/login.component';
 import{HttpClientModule} from '@angular/common/http'
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -29,7 +30,8 @@ import{HttpClientModule} from '@angular/common/http'
     MatInputModule,
     BrowserModule,
     NoopAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
