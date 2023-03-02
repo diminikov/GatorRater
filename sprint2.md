@@ -14,3 +14,26 @@ TestMakeUser - Testing to see if we can create an user in the backend and that t
 TestGetUser - Testing to see if we can access the database to find a user with a specified username.
 TestEditUser -  Testing to see if we can find a user with a specified username and succesfully edit its data.
 TestDeleteUser - Testing to see if we can find a user with a specified username and succesfully remove it from the table.
+
+Front End Additions
+Added an about us page, giving a simple background to each of the team members
+Added a course section using a search bar, so the user can search for desired course
+Created buttons as part of the header using event binding to load different pages based on user input
+
+
+
+
+Front End Cypress Tests
+
+
+
+
+
+Front End Work to be done next sprint:
+
+Integrating front and back end- we were unable to do this because of a problem creating a proxy in angular. We plan to meet with a TA to resolve this issue as soon as possible.
+Adding images to About us page and to the course search page
+modifying the login page to allow a user to make a new account.
+being able to click a class and it route to a new message board for the class.
+storing messages and user id in back end.
+
