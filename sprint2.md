@@ -25,6 +25,7 @@ Created buttons as part of the header using event binding to load different page
 
 Front End Cypress Tests
 
+For the Cypress and Unit Testing, the first test essentially visits the local browser and finds the three tabs "About us", "Login" and "Find a Course to rate" and clicks on them, resulting in the user going to different pages. The second clicks on one of the courses in the list of computer science courses. The third test implements the search bar in that it finds the search bar, types the name of a course (e.g. "Introduction to Computer Organization") and through a search filter pipe, filters the list of courses until it finds the course the user is looking for and clicks on the user. Lastly, the fourth test, it goes to the login page by clicking on login on the tabs and then inputs the username and password of some account and clicks submit. The code returns "Login Successful".
 
 
 
