@@ -5,7 +5,7 @@
         class = "searchTerm"
         type = "text"
         name = "searchTerm"
-        placeholder= "What course are you looking for?"
+        placeholder= "Course Name"
         [(ngModel)] = "searchTerm" (input) = "search(searchTerm)"
         />
       </div>
@@ -19,7 +19,7 @@
     <div class="col-xs-12">
         <div class = "container">
             <a  href="#" 
-            class="btn btn-primary dropdown-toggle" 
+            class="btn btn-primary droypdown-toggle" 
             *ngFor="let Course of courses| searchFilter: searchTerm; index as i">
             <div class="container">
                 <h4 class="list-group-item-heading" (click)="onSelected(i)">{{Course.ID}}:  {{Course.name}}</h4>
