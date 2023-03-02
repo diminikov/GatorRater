@@ -7,6 +7,10 @@ PUT /users/:username - Navigates to the backend and updates an user's informatio
 DELETE /users/:username - Navigates to the backend and deletes a user from the database.
 
 
-BACKEND UNIT tests
-TestpingRoute - Testing to see if we are successfully connecting to the backend.
-TestGetuser - Testing to see if we can create an user in the backend and that this user is successfully uploaded and stored in the databse.
+Backend Unit Tests
+
+TestPingRoute - Testing to see if we are successfully connecting to the backend.
+TestMakeUser - Testing to see if we can create an user in the backend and that this user is successfully uploaded and stored in the databse.
+TestGetUser - Testing to see if we can access the database to find a user with a specified username.
+TestEditUser -  Testing to see if we can find a user with a specified username and succesfully edit its data.
+TestDeleteUser - Testing to see if we can find a user with a specified username and succesfully remove it from the table.
