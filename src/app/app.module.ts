@@ -10,9 +10,11 @@ import { CoursesComponent } from './courses/courses.component';
 import { CommonModule } from '@angular/common';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { LoginComponent } from './login/login.component';
-import{HttpClientModule} from '@angular/common/http'
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { SearchFilterPipe } from './search-filter.pipe';
+import{HttpClientModule} from '@angular/common/http';
+import { SignupComponent } from './signup/signup.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -24,7 +26,7 @@ import { SearchFilterPipe } from './search-filter.pipe';
     CoursesComponent,
     AboutUsComponent,
     LoginComponent,
-    SearchFilterPipe,
+    SignupComponent,
   ],
   imports: [
     FormsModule,
@@ -33,7 +35,9 @@ import { SearchFilterPipe } from './search-filter.pipe';
     BrowserModule,
     NoopAnimationsModule,
     HttpClientModule,
-    Ng2SearchPipeModule
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

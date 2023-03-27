@@ -9,6 +9,7 @@ import (
 
 var db *sql.DB
 
+//TODO: Change This into Helper Functions
 func database() {
 
 	db, connectErr := connect("root", "password", "gatorrater")

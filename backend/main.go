@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -21,9 +22,12 @@ var users = []user{
 }
 
 func main() {
+	
 	router := gin.Default()
-	router.GET("/users", getusers)
-	router.GET("/login/:username/:password", getLogin)
+	router.Use(cors.Default())
+	router.GET("api/users", getusers)
+	router.GET("api/login/:username/:password", getLogin)
+
 
 	router.Run("localhost:8080")
 }

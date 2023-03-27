@@ -1,0 +1,16 @@
+TESTS FOR DATABASE
+
+Get All Users 
+curl http://localhost:8080/users
+
+Add User:
+curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d "{\"username\": \"username\",\"password\": \"password\"}"
+
+Get User by username:
+curl http://localhost:8080/users/username
+
+Update User by username:
+curl -X PUT http://localhost:8080/users/username -H "Content-Type: application/json" -d "{\"username\": \"new_username\",\"password\": \"new_password\"}"
+
+Delete User by username:
+curl -X DELETE http://localhost:8080/users/username
