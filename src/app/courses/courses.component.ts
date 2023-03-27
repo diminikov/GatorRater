@@ -1,5 +1,6 @@
 import { Component,Output, EventEmitter } from '@angular/core';
 import { Course } from './course.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -7,6 +8,8 @@ import { Course } from './course.model';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent {
+constructor(private router: Router){}
+
   courses : Course [] = [
     new Course('CEN3031', 'Introduction to Software Engineering'),
     new Course('COP3503C', 'Programming Fundamentals 2'),

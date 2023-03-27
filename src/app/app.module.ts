@@ -10,7 +10,11 @@ import { CoursesComponent } from './courses/courses.component';
 import { CommonModule } from '@angular/common';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { LoginComponent } from './login/login.component';
-import{HttpClientModule} from '@angular/common/http'
+import{HttpClientModule} from '@angular/common/http';
+import { SignupComponent } from './signup/signup.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -22,6 +26,7 @@ import{HttpClientModule} from '@angular/common/http'
     CoursesComponent,
     AboutUsComponent,
     LoginComponent,
+    SignupComponent,
   ],
   imports: [
     FormsModule,
@@ -29,7 +34,10 @@ import{HttpClientModule} from '@angular/common/http'
     MatInputModule,
     BrowserModule,
     NoopAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

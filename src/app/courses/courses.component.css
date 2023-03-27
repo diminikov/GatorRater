@@ -1,0 +1,4 @@
+.container{
+    justify-content: space-between;
+    column-gap: 60px;
+}
