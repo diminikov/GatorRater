@@ -15,6 +15,8 @@ import { SignupComponent } from './signup/signup.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 
 
@@ -27,6 +29,8 @@ import { AppRoutingModule } from './app-routing.module';
     AboutUsComponent,
     LoginComponent,
     SignupComponent,
+    SearchFilterPipe,
+
   ],
   imports: [
     FormsModule,
@@ -37,7 +41,9 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Ng2SearchPipeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

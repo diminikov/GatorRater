@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -29,11 +29,16 @@ interface someClass {
  }) 
 
 
-export class AppComponent {
+export class AppComponent{
+ 
 
   constructor(private httpClient: HttpClient, router:Router){
 
   }
+
+  
+
+  
   
   public users: user[] = [];
 
@@ -83,6 +88,7 @@ private baseUrl = 'http://localhost:8080/api/users';
     //this.fetchUsers();
     //this.getUsers(); 
   }
+
 
 
 

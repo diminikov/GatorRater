@@ -1,6 +1,8 @@
 import { Component,Output, EventEmitter } from '@angular/core';
 import { Course } from './course.model';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-courses',
@@ -8,7 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent {
-constructor(private router: Router){}
+  constructor(private httpClient: HttpClient, router:Router){
+
+  }
 
   courses : Course [] = [
     new Course('CEN3031', 'Introduction to Software Engineering'),
@@ -40,5 +44,27 @@ constructor(private router: Router){}
     //console.log
     return index;
   }
+
+  searchTerm = '';
+  classes: Course[] = [];
+  term = '';
+  allClasses: Course[] = [];
+
+
+  
+  ngOnInit(): void {
+    this.httpClient.get<Course[]>('').subscribe((data: Course[]) => {
+      this.classes = data;
+      this.allClasses = this.classes;
+    });
+
+  }
+
+  search(value:string): void{
+    this.classes = this.allClasses.filter((val)=>
+    val.name.toLowerCase().includes(value)
+    );
+  }
+
 
 }

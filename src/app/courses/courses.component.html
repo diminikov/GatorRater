@@ -1,4 +1,17 @@
 
+<form class = "wrap">
+    <div class = "search">
+      <h3>Search For Course</h3>
+      <input
+      class = "searchTerm"
+      type = "text"
+      name = "searchTerm"
+      placeholder= "Course Name"
+      [(ngModel)] = "searchTerm" (input) = "search(searchTerm)"
+      />
+    </div>
+  </form>
+
 <div class="container-fluid">
     <div class="col-xs-12">
         <hr>
@@ -7,7 +20,7 @@
         <div class = "container" >
             <a  href="#" 
             class="btn btn-primary dropdown-toggle"  
-            *ngFor="let Course of courses; let i = index">
+            *ngFor="let Course of courses| searchFilter: searchTerm; index as i">
             <div class="container">
                 <h4 class="list-group-item-heading" (click)="onSelected(i)">{{Course.ID}}:  {{Course.name}}</h4>
 
