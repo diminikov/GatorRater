@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"gatorrater/database"
 	"gatorrater/models"
+	"gatorrater/router"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -22,7 +23,7 @@ func checkDBForClass(db *gorm.DB, class *models.Class, u string) bool {
 }
 
 func TestMakeClass(t *testing.T) {
-	router := setupRouter()
+	router := router.SetupRouter()
 
 	var jsonData = []byte(`{
 		"name": "morpheus"
@@ -40,7 +41,7 @@ func TestMakeClass(t *testing.T) {
 }
 
 func TestGetClass(t *testing.T) {
-	router := setupRouter()
+	router := router.SetupRouter()
 
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/class/morpheus", nil)
@@ -50,7 +51,7 @@ func TestGetClass(t *testing.T) {
 }
 
 func TestEditClass(t *testing.T) {
-	router := setupRouter()
+	router := router.SetupRouter()
 
 	var jsonData = []byte(`{
 		"name": "smith"
@@ -69,7 +70,7 @@ func TestEditClass(t *testing.T) {
 }
 
 func TestDeleteClass(t *testing.T) {
-	router := setupRouter()
+	router := router.SetupRouter()
 
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("DELETE", "/class/smith", nil)

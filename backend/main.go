@@ -1,15 +1,13 @@
 package main
 
 import (
-	"gatorrater/controllers"
-	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"gatorrater/router"
+	
 )
 
 // test with curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d "{\"username\": \"diminikov\",\"password\": \"1234\"}"
 func main() {
-	r := setupRouter()
+	r := router.SetupRouter()
 	_ = r.Run(":8080")
 }
 
