@@ -1,4 +1,6 @@
 .conatiner-fluid{
+    margin: -1px;
+    padding: 5px;
     background-color: 	rgb(48,48,48);
     
 }

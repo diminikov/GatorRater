@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"gatorrater/database"
 	"gatorrater/models"
+	"gatorrater/router"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -23,7 +24,7 @@ func checkDBForUser(db *gorm.DB, user *models.User, u string, p string) bool {
 
 // testing the connection to the backend
 func TestPingRoute(t *testing.T) {
-	router := setupRouter()
+	router := router.SetupRouter()
 
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/ping", nil)
@@ -34,7 +35,7 @@ func TestPingRoute(t *testing.T) {
 }
 
 func TestMakeUser(t *testing.T) {
-	router := setupRouter()
+	router := router.SetupRouter()
 
 	var jsonData = []byte(`{
 		"Username": "morpheus",
@@ -53,7 +54,7 @@ func TestMakeUser(t *testing.T) {
 }
 
 func TestGetUser(t *testing.T) {
-	router := setupRouter()
+	router := router.SetupRouter()
 
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/users/morpheus", nil)
@@ -63,7 +64,7 @@ func TestGetUser(t *testing.T) {
 }
 
 func TestEditUser(t *testing.T) {
-	router := setupRouter()
+	router := router.SetupRouter()
 
 	var jsonData = []byte(`{
 		"Username": "smith",
@@ -83,7 +84,7 @@ func TestEditUser(t *testing.T) {
 }
 
 func TestDeleteUser(t *testing.T) {
-	router := setupRouter()
+	router := router.SetupRouter()
 
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("DELETE", "/users/smith", nil)

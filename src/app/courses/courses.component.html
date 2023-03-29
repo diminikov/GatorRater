@@ -13,7 +13,7 @@
   </form>
 
 <div class="container-fluid">
-    <div class="col-xs-12">
+    <div class="col-xs-12" >
         <hr>
     </div>
     <div class="col-xs-12">
@@ -23,7 +23,7 @@
             *ngFor="let Course of courses| searchFilter: searchTerm; index as i">
             <div class="container">
                 <h4 class="list-group-item-heading" (click)="onSelected(i)"> {{Course.ID}}: {{Course.name}}</h4>
-                <li><a routerLink="/DiscussionBoard">{{Course.ID}}: {{Course.name}}</a></li>
+                <li><a routerLink="/DiscussionBoard">{{Course.ID}}: {{Course.name}} Link</a></li>
             </div>
             <span class="pull-left">
             </span>

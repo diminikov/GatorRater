@@ -22,17 +22,17 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email:[''],
-      password:['']
+      Username:[''],
+      Password:['']
     })
   }
-  private baseUrl = 'http://localhost:8080/api/users';
+  private baseUrl = 'http://localhost:8080/users';
 
   login(){
     this.http.get<any>(this.baseUrl)
     .subscribe(res=>{
       const user = res.find((a:any)=>{
-        return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password
+        return a.Username === this.loginForm.value.Username && a.Password === this.loginForm.value.Password
       });
       if(user){
         alert("Login Success");

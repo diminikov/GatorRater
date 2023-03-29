@@ -15,15 +15,13 @@ export class SignupComponent implements OnInit{
 
   ngOnInit() : void {
     this.signupForm = this.formBuilder.group({
-      fullname:[''],
-      email:[''],
-      password:[''],
-      mobile:['']
+      Username:[''],
+      Password:[''],
 
     })
 
   }
-  private baseUrl = 'http://localhost:8080/api/users';
+  private baseUrl = 'http://localhost:8080/users';
 
 
   signUp(){
