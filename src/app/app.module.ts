@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SearchFilterPipe } from './search-filter.pipe';
+import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
 
 
 
@@ -30,6 +31,7 @@ import { SearchFilterPipe } from './search-filter.pipe';
     LoginComponent,
     SignupComponent,
     SearchFilterPipe,
+    DiscussionBoardComponent,
 
   ],
   imports: [

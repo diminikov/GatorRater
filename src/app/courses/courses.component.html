@@ -22,8 +22,8 @@
             class="btn btn-primary dropdown-toggle"  
             *ngFor="let Course of courses| searchFilter: searchTerm; index as i">
             <div class="container">
-                <h4 class="list-group-item-heading" (click)="onSelected(i)">{{Course.ID}}:  {{Course.name}}</h4>
-
+                <h4 class="list-group-item-heading" (click)="onSelected(i)"> {{Course.ID}}: {{Course.name}}</h4>
+                <li><a routerLink="/DiscussionBoard">{{Course.ID}}: {{Course.name}}</a></li>
             </div>
             <span class="pull-left">
             </span>
