@@ -14,3 +14,8 @@ For the Unit Testing for sprint 3 (using Cypress), I wanted to be able to demons
 
 Back End:
 
+TestMakeClass - Testing to see if we can create a class in the backend and that this class is successfully uploaded and stored in the databse. TestGetClass - Testing to see if we can access the database to find a lass with a specified name. TestEditClass - Testing to see if we can find a class with a specified name and succesfully edit its data. TestDeleteClass - Testing to see if we can find a class with a specified name and succesfully remove it from the table.
+
+Backend API documentation
+
+POST /class: - posting the new information from the frontend and creating a new class in the backend using that information. GET /classes - Navigates to the backend and gets all the classes from the database GET /class/:name - Navigates to the backend and gets the class from the database if that class exists. Otherwise outputs an error. PUT /class/:name - Navigates to the backend and updates an class's information in the databse. DELETE /class/:name - Navigates to the backend and deletes a class from the database.
