@@ -28,3 +28,12 @@ func GetPostFromUser(db *gorm.DB, Post *[]Post, username string) (err error) {
 	}
 	return nil
 }
+
+// get posts by classname
+func GetPostFromClass(db *gorm.DB, Post *[]Post, classname string) (err error) {
+	err = db.Joins("NATURAL JOIN classes").Where("name = ?", classname).Find(Post).Error
+	if err != nil {
+		return err
+	}
+	return nil
+}

@@ -44,6 +44,7 @@ func SetupRouter() *gin.Engine {
 	//Create HTTP Requests for Posts
 	r.POST("/post", grRepo.CreatePost)
 	r.GET("/post/username/:username", grRepo.GetPostFromUser)
+	r.GET("/post/class/:classname", grRepo.GetPostFromClass)
 
 	return r
 }

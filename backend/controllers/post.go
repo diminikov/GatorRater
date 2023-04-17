@@ -37,3 +37,20 @@ func (repository *GatorRaterRepo) GetPostFromUser(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, post)
 }
+
+// get all posts in the class
+func (repository *GatorRaterRepo) GetPostFromClass(c *gin.Context) {
+	name := c.Param("classname")
+	var post []models.Post
+	err := models.GetPostFromClass(repository.Db, &post, name)
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			c.AbortWithStatus(http.StatusNotFound)
+			return
+		}
+
+		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
+		return
+	}
+	c.JSON(http.StatusOK, post)
+}
