@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"gatorrater/database"
+	"errors"
 	"gatorrater/models"
 	"net/http"
 
@@ -9,22 +9,29 @@ import (
 	"gorm.io/gorm"
 )
 
-type PostRepo struct {
-	Db *gorm.DB
-}
-
-func NewPostRepo() *PostRepo {
-	db := database.InitDb()
-	db.AutoMigrate(&models.Post{})
-	return &PostRepo{Db: db}
-}
-
 // create post
-func (repository *PostRepo) CreatePost(c *gin.Context) {
+func (repository *GatorRaterRepo) CreatePost(c *gin.Context) {
 	var post models.Post
 	c.BindJSON(&post)
 	err := models.CreatePost(repository.Db, &post)
 	if err != nil {
+		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
+		return
+	}
+	c.JSON(http.StatusOK, post)
+}
+
+// get all posts by the username
+func (repository *GatorRaterRepo) GetPostFromUser(c *gin.Context) {
+	name := c.Param("username")
+	var post []models.Post
+	err := models.GetPostFromUser(repository.Db, &post, name)
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			c.AbortWithStatus(http.StatusNotFound)
+			return
+		}
+
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
 		return
 	}

@@ -19,3 +19,12 @@ func CreatePost(db *gorm.DB, Post *Post) (err error) {
 	}
 	return nil
 }
+
+// get posts by username
+func GetPostFromUser(db *gorm.DB, Post *[]Post, username string) (err error) {
+	err = db.Joins("NATURAL JOIN users").Where("username = ?", username).Find(Post).Error
+	if err != nil {
+		return err
+	}
+	return nil
+}
