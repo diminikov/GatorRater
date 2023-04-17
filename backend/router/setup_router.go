@@ -39,5 +39,8 @@ func SetupRouter() *gin.Engine {
 	r.PUT("/class/:name", classRepo.UpdateClass)
 	r.DELETE("/class/:name", classRepo.DeleteClass)
 
+	postRepo := controllers.NewPostRepo()
+	r.POST("/post", postRepo.CreatePost)
+
 	return r
 }

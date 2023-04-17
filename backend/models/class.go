@@ -5,9 +5,8 @@ import (
 )
 
 type Class struct {
-	gorm.Model
-	ID   int
-	Name string
+	CID  int    `gorm:"primaryKey"`
+	Name string `gorm:"unique"`
 }
 
 // create a class
