@@ -88,9 +88,17 @@ func TestGetPostFromClass(t *testing.T) {
 func TestIncorrectUserPost(t *testing.T) {
 	router := router.SetupRouter()
 
+	var jsonData = []byte(`{
+		"Username": "pineapple",
+		"Class": "CEN3031",
+		"Body": " This class is amazing"
+
+	}`)
+
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/post/username/pineapple", nil)
-	router.ServeHTTP(w, req)
+	userReq, _ := http.NewRequest("POST", "/post", bytes.NewBuffer(jsonData))
+	userReq.Header.Add("Content-Type", "application/json")
+	router.ServeHTTP(w, userReq)
 
 	//500 is the fail code and we want to ensure that user doesn't exist
 	assert.Equal(t, 500, w.Code)
@@ -100,10 +108,19 @@ func TestIncorrectUserPost(t *testing.T) {
 func TestIncorrectClassPost(t *testing.T) {
 	router := router.SetupRouter()
 
-	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/post/class/INT2021", nil)
-	router.ServeHTTP(w, req)
+	var jsonData = []byte(`{
+		"Username": "morepheus",
+		"Class": "INT2021",
+		"Body": " This class is amazing"
 
+	}`)
+
+	w := httptest.NewRecorder()
+	userReq, _ := http.NewRequest("POST", "/post", bytes.NewBuffer(jsonData))
+	userReq.Header.Add("Content-Type", "application/json")
+	router.ServeHTTP(w, userReq)
+
+	//500 is the fail code and we want to ensure that user doesn't exist
 	assert.Equal(t, 500, w.Code)
 }
 
