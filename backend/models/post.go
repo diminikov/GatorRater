@@ -11,6 +11,17 @@ type Post struct {
 	Body string
 }
 
+type PostInput struct {
+	class    string
+	username string
+	body     string
+}
+
+type PostJsonUser struct {
+	Username string
+	Body     string
+}
+
 // create a post
 func CreatePost(db *gorm.DB, Post *Post) (err error) {
 	err = db.Create(Post).Error
@@ -30,8 +41,8 @@ func GetPostFromUser(db *gorm.DB, Post *[]Post, username string) (err error) {
 }
 
 // get posts by classname
-func GetPostFromClass(db *gorm.DB, Post *[]Post, classname string) (err error) {
-	err = db.Joins("NATURAL JOIN classes").Where("name = ?", classname).Find(Post).Error
+func GetPostFromClass(db *gorm.DB, PostJsonUser *[]PostJsonUser, classname string) (err error) {
+	err = db.Table("posts").Select("users.username, body").Joins("NATURAL JOIN classes NATURAL JOIN users").Where("name = ?", classname).Find(PostJsonUser).Error
 	if err != nil {
 		return err
 	}

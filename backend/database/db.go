@@ -8,7 +8,7 @@ import (
 )
 
 const DB_USERNAME = "root"
-const DB_PASSWORD = "password"
+const DB_PASSWORD = "root"
 const DB_NAME = "gatorrater"
 const DB_HOST = "127.0.0.1"
 const DB_PORT = "3306"

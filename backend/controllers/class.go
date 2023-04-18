@@ -13,6 +13,7 @@ import (
 func (repository *GatorRaterRepo) CreateClass(c *gin.Context) {
 	var class models.Class
 	c.BindJSON(&class)
+
 	err := models.CreateClass(repository.Db, &class)
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
