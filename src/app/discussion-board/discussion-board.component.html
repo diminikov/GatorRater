@@ -1,0 +1,32 @@
+
+<div class="container mt-4">
+  <h2>Discussion Board for {{className}}</h2>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <!-- Display existing posts for this class -->
+      <ul class="list-unstyled">
+        <li *ngFor="let post of posts">
+          {{post}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-12">
+      <!-- Form to submit new post -->
+      <form (ngSubmit)="onSubmit(classId,newPost)" #postForm="ngForm">
+        <div class="form-group">
+          <label for="post">New Post:</label>
+          <textarea class="form-control" id="post" name="post" [(ngModel)]="newPost" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+  
+  
+  
+  
+  

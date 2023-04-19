@@ -15,6 +15,7 @@ import { SignupComponent } from './signup/signup.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
 
 
 
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     AboutUsComponent,
     LoginComponent,
     SignupComponent,
+    DiscussionBoardComponent,
   ],
   imports: [
     FormsModule,
