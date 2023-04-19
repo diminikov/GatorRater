@@ -1,6 +1,6 @@
-describe('Sprint 3 Test 1', ()=> {
+describe('Sprint 4 Test 1', ()=> {
     it('sign up ', ()=> {
-        cy.visit('http://localhost:4200')
+        cy.visit('http://localhost:52426')
 
         cy.contains('New user? Click to signup!!').click()
 
@@ -16,9 +16,9 @@ describe('Sprint 3 Test 1', ()=> {
 })
 
 
-describe('Sprint 3 Test 2', ()=> {
+describe('Sprint 4 Test 2', ()=> {
     it('login', ()=> {
-        cy.visit('http://localhost:4200')
+      cy.visit('http://localhost:52426')
 
         cy.contains('Email address').type('YonasWorku')
 
@@ -32,7 +32,7 @@ describe('Sprint 3 Test 2', ()=> {
 })
 
 
-describe('Sprint 3 Test 3', ()=> {
+describe('Sprint 4 Test 3', ()=> {
     it('Clicking on the tabs', ()=> {
         cy.visit('http://localhost:4200')
 
@@ -45,22 +45,22 @@ describe('Sprint 3 Test 3', ()=> {
     })
 })
 
-describe('Sprint 3 Test 4', ()=> {
+describe('Sprint 4 Test 4', ()=> {
     it('clicking on anything other than the three tabs', ()=>{
-        cy.visit('http://localhost:4200')
+      cy.visit('http://localhost:52426')
 
         cy.contains('Find a Course to Rate').click()
 
         cy.contains('Manage').click()
 
 
-    
+
     })
 })
 
-describe('Sprint 3 Test 5', ()=> {
+describe('Sprint 4 Test 5', ()=> {
     it('Discussion Board', ()=>{
-        cy.visit('http://localhost:4200')
+      cy.visit('http://localhost:52426')
 
         cy.contains('Find a Course to Rate').click()
 
@@ -72,13 +72,13 @@ describe('Sprint 3 Test 5', ()=> {
 
 
 
-    
+
     })
 })
 
-describe('Sprint 3 Test 6', ()=> {
+describe('Sprint 4 Test 6', ()=> {
     it('Search Bar', ()=>{
-        cy.visit('http://localhost:4200')
+      cy.visit('http://localhost:52426')
 
         cy.contains('Find a Course to Rate').click()
 
@@ -86,7 +86,7 @@ describe('Sprint 3 Test 6', ()=> {
 
         cy.contains('Introduction to Computer Organization').click()
 
-    
+
     })
 })
 
