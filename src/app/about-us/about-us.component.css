@@ -87,13 +87,13 @@ background-size: cover;
   }
 
   .flex-bio{
-    text-align: center;
+    text-align: right;
     font-family: 'Lobster';
 
   }
 
   .flex-job{
-    text-align: center;
+    text-align: right;
     font-family: 'Lobster';
 
   }
