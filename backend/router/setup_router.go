@@ -25,19 +25,26 @@ func SetupRouter() *gin.Engine {
 		c.JSON(http.StatusOK, "pong")
 	})
 
-	userRepo := controllers.NewUserRepo()
-	r.POST("/users", userRepo.CreateUser)
-	r.GET("/users", userRepo.GetUsers)
-	r.GET("/users/:username", userRepo.GetUser)
-	r.PUT("/users/:username", userRepo.UpdateUser)
-	r.DELETE("/users/:username", userRepo.DeleteUser)
+	grRepo := controllers.NewGRRepo()
 
-	classRepo := controllers.NewClassRepo()
-	r.POST("/class", classRepo.CreateClass)
-	r.GET("/class", classRepo.GetClasses)
-	r.GET("/class/:name", classRepo.GetClass)
-	r.PUT("/class/:name", classRepo.UpdateClass)
-	r.DELETE("/class/:name", classRepo.DeleteClass)
+	//Create HTTP Requests for Users
+	r.POST("/users", grRepo.CreateUser)
+	r.GET("/users", grRepo.GetUsers)
+	r.GET("/users/:username", grRepo.GetUser)
+	r.PUT("/users/:username", grRepo.UpdateUser)
+	r.DELETE("/users/:username", grRepo.DeleteUser)
+
+	//Create HTTP Requests for Classes
+	r.POST("/class", grRepo.CreateClass)
+	r.GET("/class", grRepo.GetClasses)
+	r.GET("/class/:name", grRepo.GetClass)
+	r.PUT("/class/:name", grRepo.UpdateClass)
+	r.DELETE("/class/:name", grRepo.DeleteClass)
+
+	//Create HTTP Requests for Posts
+	r.POST("/post", grRepo.CreatePost)
+	r.GET("/post/username/:username", grRepo.GetPostFromUser)
+	r.GET("/post/class/:classname", grRepo.GetPostFromClass)
 
 	return r
 }

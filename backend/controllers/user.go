@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"errors"
-	"gatorrater/database"
 	"gatorrater/models"
 	"net/http"
 
@@ -10,18 +9,8 @@ import (
 	"gorm.io/gorm"
 )
 
-type UserRepo struct {
-	Db *gorm.DB
-}
-
-func NewUserRepo() *UserRepo {
-	db := database.InitDb()
-	db.AutoMigrate(&models.User{})
-	return &UserRepo{Db: db}
-}
-
 // create user
-func (repository *UserRepo) CreateUser(c *gin.Context) {
+func (repository *GatorRaterRepo) CreateUser(c *gin.Context) {
 	var user models.User
 	c.BindJSON(&user)
 	err := models.CreateUser(repository.Db, &user)
@@ -33,7 +22,7 @@ func (repository *UserRepo) CreateUser(c *gin.Context) {
 }
 
 // get users
-func (repository *UserRepo) GetUsers(c *gin.Context) {
+func (repository *GatorRaterRepo) GetUsers(c *gin.Context) {
 	var user []models.User
 	err := models.GetUsers(repository.Db, &user)
 	if err != nil {
@@ -44,7 +33,7 @@ func (repository *UserRepo) GetUsers(c *gin.Context) {
 }
 
 // get user by username
-func (repository *UserRepo) GetUser(c *gin.Context) {
+func (repository *GatorRaterRepo) GetUser(c *gin.Context) {
 	username := c.Param("username")
 	var user models.User
 	err := models.GetUser(repository.Db, &user, username)
@@ -61,7 +50,7 @@ func (repository *UserRepo) GetUser(c *gin.Context) {
 }
 
 // update user
-func (repository *UserRepo) UpdateUser(c *gin.Context) {
+func (repository *GatorRaterRepo) UpdateUser(c *gin.Context) {
 	var user models.User
 	username := c.Param("username")
 	err := models.GetUser(repository.Db, &user, username)
@@ -84,7 +73,7 @@ func (repository *UserRepo) UpdateUser(c *gin.Context) {
 }
 
 // delete user
-func (repository *UserRepo) DeleteUser(c *gin.Context) {
+func (repository *GatorRaterRepo) DeleteUser(c *gin.Context) {
 	var user models.User
 	username := c.Param("username")
 	err := models.DeleteUser(repository.Db, &user, username)

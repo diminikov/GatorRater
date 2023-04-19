@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"errors"
-	"gatorrater/database"
 	"gatorrater/models"
 	"net/http"
 
@@ -10,20 +9,11 @@ import (
 	"gorm.io/gorm"
 )
 
-type ClassRepo struct {
-	Db *gorm.DB
-}
-
-func NewClassRepo() *ClassRepo {
-	db := database.InitDb()
-	db.AutoMigrate(&models.Class{})
-	return &ClassRepo{Db: db}
-}
-
 // create class, intercepting the put request with a post
-func (repository *ClassRepo) CreateClass(c *gin.Context) {
+func (repository *GatorRaterRepo) CreateClass(c *gin.Context) {
 	var class models.Class
 	c.BindJSON(&class)
+
 	err := models.CreateClass(repository.Db, &class)
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
@@ -33,7 +23,7 @@ func (repository *ClassRepo) CreateClass(c *gin.Context) {
 }
 
 // get all classes
-func (repository *ClassRepo) GetClasses(c *gin.Context) {
+func (repository *GatorRaterRepo) GetClasses(c *gin.Context) {
 	var class []models.Class
 	err := models.GetClasses(repository.Db, &class)
 	if err != nil {
@@ -44,7 +34,7 @@ func (repository *ClassRepo) GetClasses(c *gin.Context) {
 }
 
 // get specific class by the classname
-func (repository *ClassRepo) GetClass(c *gin.Context) {
+func (repository *GatorRaterRepo) GetClass(c *gin.Context) {
 	name := c.Param("name")
 	var class models.Class
 	err := models.GetClass(repository.Db, &class, name)
@@ -61,7 +51,7 @@ func (repository *ClassRepo) GetClass(c *gin.Context) {
 }
 
 // update Class
-func (repository *ClassRepo) UpdateClass(c *gin.Context) {
+func (repository *GatorRaterRepo) UpdateClass(c *gin.Context) {
 	var class models.Class
 	name := c.Param("name")
 	err := models.GetClass(repository.Db, &class, name)
@@ -84,7 +74,7 @@ func (repository *ClassRepo) UpdateClass(c *gin.Context) {
 }
 
 // delete a class
-func (repository *ClassRepo) DeleteClass(c *gin.Context) {
+func (repository *GatorRaterRepo) DeleteClass(c *gin.Context) {
 	var class models.Class
 	name := c.Param("name")
 	err := models.DeleteClass(repository.Db, &class, name)
