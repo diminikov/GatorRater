@@ -15,7 +15,7 @@ interface MyClassData {
 export class DataService {
   currentUser: string;
   constructor(private http: HttpClient) {
-    this.currentUser = '';
+    this.currentUser = 'Michael';
    }
    classData: MyClassData = {
     CEN3031: {
@@ -104,41 +104,37 @@ export class DataService {
     }else if(classId == 'EGS4034'){
       this.getEGS4034Post(this.classData);
 
-    }else if(classId = 'COP3503C'){
+    }else if(classId =='COP3503C'){
       this.getCOP3503CPost(this.classData);
-    }else if(classId = 'COP3502C'){
+    }else if(classId == 'COP3502C'){
       this.getCOP3502CPost(this.classData);
-    }else if(classId = 'CDA3101'){
+    }else if(classId == 'CDA3101'){
       this.getCDA3101Post(this.classData);
     }
-    else if(classId = 'COP3530'){
+    else if(classId == 'COP3530'){
       this.getCOP3530Post(this.classData);
     }
-    else if(classId = 'COT3100'){
+    else if(classId == 'COT3100'){
       this.getCOT3100Post(this.classData);
     }
-    else if(classId = 'CIS4301'){
+    else if(classId == 'CIS4301'){
       this.getCIS4301Post(this.classData);
     }
-    else if(classId = 'CIS4914'){
+    else if(classId == 'CIS4914'){
       this.getCIS4914Post(this.classData);
     }
-    else if(classId = 'CNT4007'){
+    else if(classId == 'CNT4007'){
       this.getCNT4007Post(this.classData);
     }
-    else if(classId = 'COP4020'){
+    else if(classId == 'COP4020'){
       this.getCOP4020Post(this.classData);
     }
-    else if(classId = 'COP4533'){
+    else if(classId == 'COP4533'){
       this.getCOP4533Post(this.classData);
     }
-    else if(classId = 'COP4600'){
+    else if(classId == 'COP4600'){
       this.getCOP4600Post(this.classData);
     }
-    else if(classId = 'EGS4034'){
-      this.getEGS4034Post(this.classData);
-    }
-    
   }
 
   getCEN3031Post(classData: MyClassData) {

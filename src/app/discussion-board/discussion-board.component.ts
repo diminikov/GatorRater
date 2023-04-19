@@ -44,7 +44,7 @@ export class DiscussionBoardComponent implements OnInit {
   }
 
   onSubmit(classId: string, newPost: string) {
-    this.dataService.addPost(classId, newPost,this.dataService.currentUser).subscribe((response) => {
+    this.dataService.addPost(this.classId, newPost,this.dataService.currentUser).subscribe((response) => {
       console.log('Post added successfully:', response);
     }, (error) => {
       console.error('Error adding post:', error);
