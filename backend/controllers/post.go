@@ -21,7 +21,7 @@ func (repository *GatorRaterRepo) CreatePost(c *gin.Context) {
 	c.BindJSON(&post_input)
 
 	var post models.Post
-	repository.Db.Table("users").Joins("NATURAL JOIN classes").Select("c_id, uid").Where("username = ?", post_input.Username).Find(&post)
+	repository.Db.Table("users").Joins("NATURAL JOIN classes").Select("c_id, uid").Where("username = ?", post_input.Username).Where("name = ?", post_input.Class).Find(&post)
 
 	if post.CID == 0 || post.UID == 0 {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, `{error : invalid class or user}`)
