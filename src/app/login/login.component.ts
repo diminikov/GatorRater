@@ -33,11 +33,13 @@ export class LoginComponent implements OnInit{
     this.http.get<any>(this.baseUrl)
     .subscribe(res=>{
       const user = res.find((a:any)=>{
+        
         return a.Username === this.loginForm.value.Username && a.Password === this.loginForm.value.Password
       });
       if(user){
+        this.dataService.setCurrentUser(this.loginForm.value.Username);
+        console.log(this.loginForm.value.Username);
         alert("Login Success");
-        this.dataService.setCurrentUser(user);
         this.loginForm.reset();
         this.router.navigate(['Courses'])
       }else{

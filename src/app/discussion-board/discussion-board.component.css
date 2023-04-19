@@ -1,46 +1,101 @@
 .container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  /* Title */
-  h2 {
-    font-weight: bold;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: whitesmoke;
-  }
-  
-  /* Existing posts */
-  ul.list-unstyled li {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* New post form */
-  form {
     margin-top: 2rem;
-    color: whitesmoke;
-  }
-  
-  form label {
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  
-  form textarea {
-    height: 10rem;
-  }
 
-  form button[type="submit"] {
-    margin-top: 1.5rem;
-    font-size: 1.5rem;
-    padding: 0.75rem 2.5rem;
+  }
+  
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3rem;
+    color:whitesmoke
+  }
+  
+  hr {
+    border-top: 2px solid #ddd;
+  }
+  
+  .card {
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+    justify-content: space-between;
+
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 0;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+    height: 400px;
+    overflow-y: auto;
+    
+  }
+  
+  .list-group-item {
+    background-color: #f8f9fa;
+    border: none;
+  }
+  
+  .list-group-item h6 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .list-group-item p {
+    margin-bottom: 0;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .btn-primary {
     background-color: #007bff;
     border: none;
-    border-radius: 2rem;
+    border-radius: 0;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
   }
   
-  form button[type="submit"]:hover {
-    background-color: #0069d9;
+  .btn-primary:hover {
+    background-color: #0062cc;
+  }
+  
+  textarea.form-control {
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+    height: 8rem;
+  }
+  
+  @media (max-width: 767.98px) {
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .card-header {
+      font-size: 1.1rem;
+    }
+    
+    .list-group-item h6 {
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      font-size: 1rem;
+    }
+  }
+
+  .card-body .border.p-3.rounded.mb-3 .bg-light {
+    background-color: white;
   }
