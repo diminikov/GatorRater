@@ -9,10 +9,18 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	//"gatorrater/database"
-
 	"github.com/stretchr/testify/assert"
+	"gorm.io/gorm"
 )
+
+// helper function to check if user is in database
+func checkDBForUser(db *gorm.DB, user *models.User, u string, p string) bool {
+	err := db.Where("username = ?", u).Where("password = ?", p).First(user).Error
+	if err != nil {
+		return false
+	}
+	return true
+}
 
 // testing the connection to the backend
 func TestPingRoute(t *testing.T) {
@@ -84,4 +92,7 @@ func TestDeleteUser(t *testing.T) {
 
 	var user models.User
 
+	assert.Equal(t, 200, w.Code)
+	assert.Equal(t, false, checkDBForUser(database.Db, &user, "morpheus", "leader"))
+	assert.Equal(t, false, checkDBForUser(database.Db, &user, "smith", "agent"))
 }

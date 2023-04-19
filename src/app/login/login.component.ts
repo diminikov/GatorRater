@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Users } from '../users';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 
 
@@ -18,7 +19,7 @@ templateUrl: 'login.component.html',
 export class LoginComponent implements OnInit{
 
   public loginForm!: FormGroup
-  constructor( private formBuilder : FormBuilder, private http : HttpClient, private router: Router) {}
+  constructor( private formBuilder : FormBuilder, private http : HttpClient, private router: Router,private dataService: DataService) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit{
       });
       if(user){
         alert("Login Success");
+        this.dataService.setCurrentUser(user);
         this.loginForm.reset();
         this.router.navigate(['Courses'])
       }else{

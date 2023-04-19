@@ -35,10 +35,21 @@ constructor(private router: Router){}
 
   }
 
+
+  onClassSelect(classId: string) {
+    // Navigate to the discussion page with the selected class as a parameter
+    this.router.navigate(['/discussion']);
+  }
+
+
   onSelected(index: number){
     //this.courseSelected.emit();
     //console.log
     return index;
+  }
+
+  goToDiscussion(classId: string) {
+    this.router.navigate(['/discussion', classId]);
   }
 
 }
