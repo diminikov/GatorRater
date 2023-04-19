@@ -17,14 +17,14 @@ background-repeat: no-repeat;
 background-size: cover;
   }
 
-  
+
   .flex-box {
 
-    backdrop-filter: blur(5px);;
-    width: 500px;
+    backdrop-filter: blur(2px);;
+    width: 600px;
     height: 300px;
     border-radius: 15px 50px 30px 5px;
-    color: white;
+    color: orange;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     text-align: center;
@@ -40,22 +40,22 @@ background-size: cover;
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
-  
+
   @-moz-keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
-  
+
   @-webkit-keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
-  
+
   @-o-keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
-  
+
   @-ms-keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
@@ -70,26 +70,29 @@ background-size: cover;
   .pic{
     width: 150px;
     clip-path: circle();
+
   }
 
   .flex-name{
     margin-left: 20px;
     padding-top: 15%;
-    font-size: small;
-    font-family: 'Times New Roman', Times, serif;
-    color: black;
+    font-size: large;
+    font-family: 'Lobster';
+    color: Blue;
 
-   
+
 
   }
 
   .flex-bio{
     text-align: center;
+    font-family: 'Lobster';
 
   }
 
   .flex-job{
-    text-align: right;
+    text-align: center;
+    font-family: 'Lobster';
 
   }
 
